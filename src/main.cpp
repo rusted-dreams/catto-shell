@@ -17,10 +17,10 @@ int main() {
     iss >> command;
     if(command == "echo"){
       std::string argument;
-      std::getline(iss, argument);
+      std::getline(iss >> std::ws, argument);
       std::cout << argument << std::endl;
     }
-    else if (input == "exit 0") break;
+    else if (command == "exit" && input == "exit 0") break;
     else {
       std::cout << input << ": "  << "command not found\n";
     }
