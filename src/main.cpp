@@ -12,8 +12,8 @@ int main() {
   // std::getline(std::cin, input);
   while (true) {
     std::getline(std::cin, input);
+    if (input == "exit 0") break;
     std::cout << input << ": "  << "command not found\n";
-    // if (input == "") break;
     std::cout << "$ ";
   }
 }
