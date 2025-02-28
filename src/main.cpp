@@ -102,7 +102,13 @@ int main() {
 
     else if(commands[0] == "cd"){
       try{
-        std::filesystem::current_path(commands[1]);
+        if(commands[1] == "~"){
+          std::string homeDir = std::getenv("HOME");
+          std::filesystem::current_path(homeDir);
+        }
+        else{
+          std::filesystem::current_path(commands[1]);
+        }
       }
       catch(...){
         std::cout << commands[0] << ": " << commands[1] << ": No such file or directory" << std::endl;
