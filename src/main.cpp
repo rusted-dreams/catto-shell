@@ -69,13 +69,16 @@ int main() {
     std::istringstream iss(input);
     std::string command;
     std::vector<std::string> commands;
-    while(iss >> std::ws >> command){
+    while(iss >> command){
       commands.push_back(command);
     }
     if(commands[0] == "echo"){
-      std::string argument;
-      std::getline(iss >> std::ws, argument);
-      std::cout << argument << std::endl;
+      // std::string argument;
+      for(int i=1; i<commands.size(); i++){
+        std::cout << commands[i] << " ";
+      }
+      std::cout << std::endl;
+      // std::cout << argument << std::endl;
     }
 
     else if(commands[0] == "type"){
