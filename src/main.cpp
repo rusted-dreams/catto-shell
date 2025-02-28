@@ -79,8 +79,7 @@ int main() {
     }
 
     else if(commands[0] == "type"){
-      std::string arg;
-      std::getline(iss >> std::ws, arg);
+      std::string arg = commands[1];
       if(built_in.find(arg) != built_in.end()) 
         std::cout << arg << " is a shell builtin" << std::endl;
       else {
