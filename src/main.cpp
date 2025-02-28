@@ -62,7 +62,7 @@ int main() {
   std::string paths = getPathEnv();
   
   std::unordered_set<std::string> built_in;
-  built_in = {"type", "echo", "exit", "pwd"};
+  built_in = {"type", "echo", "exit", "pwd", "cd"};
   std::string input;
   while (true) {
     std::getline(std::cin, input);
@@ -100,6 +100,9 @@ int main() {
       std::cout << currPath << std::endl;
     }
 
+    else if(commands[0] == "cd"){
+      std::filesystem::current_path(commands[1]);
+    }
     
     else {
       runExecutable(commands);
