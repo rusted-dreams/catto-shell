@@ -66,6 +66,10 @@ int main() {
   std::string input;
   while (true) {
     std::getline(std::cin, input);
+    
+    // std::cout << input << endl;
+    if (input == "exit 0") break;
+
     std::istringstream iss(input);
     std::string command;
     std::vector<std::string> commands;
@@ -81,6 +85,7 @@ int main() {
       // std::cout << argument << std::endl;
     }
 
+
     else if(commands[0] == "type"){
       std::string arg = commands[1];
       if(built_in.find(arg) != built_in.end()) 
@@ -90,7 +95,6 @@ int main() {
       }
     }
 
-    else if (command == "exit" && input == "exit 0") break;
     
     else {
       runExecutable(commands);
