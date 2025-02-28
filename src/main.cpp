@@ -101,7 +101,12 @@ int main() {
     }
 
     else if(commands[0] == "cd"){
-      std::filesystem::current_path(commands[1]);
+      try{
+        std::filesystem::current_path(commands[1]);
+      }
+      catch(...){
+        std::cout << commands[0] << ": " << commands[1] << ": No such file or directory" << std::endl;
+      };
     }
     
     else {
